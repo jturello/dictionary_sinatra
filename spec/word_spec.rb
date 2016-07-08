@@ -15,6 +15,11 @@ describe(Word) do
       expect(word.text()).to eq('prestidigitation')
     end
 
+    it('give Word object a id') do
+      word = Word.new({:text => 'something'})
+      expect(word.id()).not_to eq(nil)
+    end
+
     it("raise ArgumentError when input is empty string") do
       begin
         definition = Word.new({:text => ""})
@@ -23,6 +28,10 @@ describe(Word) do
       end
       expect(definition).to eq(nil)
     end
+
+    # it("raise ArgumentError if word has less than one definition") do
+    #
+    # end
 
   end
 end

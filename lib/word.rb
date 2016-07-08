@@ -1,5 +1,7 @@
 class Word
-  attr_reader :text
+  attr_reader :text, :id
+
+  @@words = []
 
   define_method(:initialize) do |attributes|
 
@@ -7,6 +9,8 @@ class Word
       raise ArgumentError.new('Invalid input: empty string not allowed!')
     end
     @text = attributes[:text]
+    @id = @@words.length() + 1
+
   end
 
 

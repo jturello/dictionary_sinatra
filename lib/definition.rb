@@ -1,8 +1,8 @@
 class Definition
   attr_reader :text
-  
-  define_method(:initialize) do |text|
-    @text = text
+
+  define_method(:initialize) do |attributes|
+    @text = attributes[:text]
   end
 
 end

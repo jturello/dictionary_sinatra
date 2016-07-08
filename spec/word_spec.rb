@@ -6,13 +6,22 @@ describe(Word) do
   describe('#initialize') do
 
     it('instantiates a word object') do
-      word = Word.new({:text => ""})
+      word = Word.new({:text => "sardonic"})
       expect(word.class).to eq(Word)
     end
 
     it('instantiates a word object with the text provided') do
       word = Word.new({:text => 'prestidigitation'})
       expect(word.text()).to eq('prestidigitation')
+    end
+
+    it("raise ArgumentError when input is empty string") do
+      begin
+        definition = Word.new({:text => ""})
+      rescue ArgumentError => e
+        expect(e.message).to eq('Invalid input: empty string not allowed!')
+      end
+      expect(definition).to eq(nil)
     end
 
   end

@@ -14,7 +14,7 @@ describe(Definition) do
       expect(definition.text()).to eq('This is the text provided to the new() method')
     end
 
-    it("raise an ArgumentError when text parameter is an empty string") do
+    it("raise ArgumentError when input is empty string") do
       begin
         definition = Definition.new({:text => ""})
       rescue ArgumentError => e

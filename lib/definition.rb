@@ -1,6 +1,8 @@
 class Definition
-  define_method(:initialize) do
-
-  end
+  attr_reader :text
   
+  define_method(:initialize) do |text|
+    @text = text
+  end
+
 end

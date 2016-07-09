@@ -1,13 +1,13 @@
 class Definition
   attr_reader :text
 
-  define_method(:initialize) do |attributes|
+  define_method(:initialize) do |args|
 
-    if attributes[:text] == ""
+    if args[:text] == "" || args[:text] == nil
       raise ArgumentError.new('Invalid input: empty string not allowed!')
     end
-    
-    @text = attributes[:text]
+
+    @text = args[:text]
   end
 
 end

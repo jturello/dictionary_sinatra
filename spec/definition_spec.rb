@@ -14,13 +14,12 @@ describe(Definition) do
       expect(definition.text()).to eq('This is the text provided to the new() method')
     end
 
-    it("raise ArgumentError when input is empty string") do
-      begin
-        definition = Definition.new({:text => ""})
-      rescue ArgumentError => e
-        expect(e.message).to eq('Invalid input: empty string not allowed!')
-      end
-      expect(definition).to eq(nil)
+    it("raise ArgumentError when :text param is empty string") do
+      expect{Definition.new({:text => ""})}.to raise_error(ArgumentError)
+    end
+
+    it("raise ArgumentError when :text param is nil") do
+      expect{Definition.new({:definitions => ['stuff']})}.to raise_error(ArgumentError)
     end
 
   end

@@ -20,7 +20,7 @@ class Word
   end
 
   define_method(:definitions) do
-    # return array by value and not Array's default - by reference
+    # return array by value, not by reference (Array class default)
     @definitions.slice(0, @definitions.size())
   end
 

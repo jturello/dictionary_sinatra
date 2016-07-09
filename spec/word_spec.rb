@@ -24,21 +24,21 @@ describe(Word) do
       expect{Word.new({:definitions => ['stuff']})}.to raise_error(ArgumentError)
     end
 
-    it("raise ArgumentError when :text param is empty string ''") do
+    it("raise ArgumentError when :text param is ''") do
       expect{Word.new({:definitions => ['stuff']})}.to raise_error(ArgumentError)
     end
 
 
-    it('instantiate a Word if it has at least one definition') do
+    it('instantiate a Word with at least one definition') do
       word = Word.new({:text => 'something', :definitions => ['first definition']})
       expect(word.definitions.size()).to be > 0
     end
 
-    it("raise ArgumentError if Word has less than one definition - empty array [] invalid") do
+    it("raise ArgumentError when definition empty - [] = invalid input") do
       expect{Word.new({:text => 'something', :definitions => []})}.to raise_error(ArgumentError)
     end
 
-    it("raise ArgumentError if Word has less than one definition - nil param invalid") do
+    it("raise ArgumentError when definition empty - nil = invalid input") do
       expect{Word.new({:text => 'something'})}.to raise_error(ArgumentError)
     end
 

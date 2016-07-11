@@ -31,6 +31,7 @@ describe(Word) do
 
     it('instantiate a Word with at least one definition') do
       word = Word.new({:text => 'something', :definitions => ['first definition']})
+      # puts word.definitions.inspect
       expect(word.definitions.size()).to be > 0
     end
 
@@ -38,9 +39,14 @@ describe(Word) do
       expect{Word.new({:text => 'something', :definitions => []})}.to raise_error(ArgumentError)
     end
 
+    it("raise ArgumentError when definition is '' - [''] = invalid input") do
+      expect{Word.new({:text => 'something', :definitions => ['']})}.to raise_error(ArgumentError)
+    end
+
     it("raise ArgumentError when definition empty - nil = invalid input") do
       expect{Word.new({:text => 'something'})}.to raise_error(ArgumentError)
     end
+
 
   end
 end

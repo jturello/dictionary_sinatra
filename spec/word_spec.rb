@@ -3,6 +3,10 @@ require('word')
 require('definition')
 
 describe(Word) do
+before(:each) do
+  Word.clear()
+end
+
   describe('#initialize') do
 
     it('instantiates a word object') do
@@ -54,6 +58,31 @@ describe(Word) do
     it('instantiates a word with multiple descriptions when more than one provided') do
       word = Word.new({:text => 'something', :definitions => ['definition one', 'definition two']})
       expect(word.definitions().size).to eq(2)
+    end
+  end
+
+  describe('#save') do
+    it('adds a word to the word list') do
+      word = Word.new({:text => 'something', :definitions => ['definition one', 'definition two']})
+      word.save()
+      expect(Word.all()).to eq([word])
+    end
+  end
+
+  describe('.all') do
+    it('is empty before any words are saved') do
+      expect(Word.all()).to eq([])
+    end
+  end
+
+  describe('.clear') do
+    it('deletes all words form the word list') do
+      word1 = Word.new({:text => 'stick', :definitions => ['definition one', 'definition two']})
+      word2 = Word.new({:text => 'prawn', :definitions => ['definition one', 'definition two', 'definition three']})
+      word1.save()
+      word2.save()
+      Word.clear()
+      expect(Word.all()).to eq([])
     end
   end
 end

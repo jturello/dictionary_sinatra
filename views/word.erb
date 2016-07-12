@@ -1,21 +1,24 @@
 <h1>Word Detail</h1>
 
-<h2>Word: <%= @entry.text() %> </h2>
+<h2>Word: <%= @word.text() %> </h2>
 
 <form action="/word" method="post">
   <div class="form-group">
      <label for="definition"></label>
      <input id="definition" name="definition" class="form-control" type="text">
   </div>
+  <div>
+    <input type="hidden" name="word_id" value="<%= @word.id() %>">
+  </div>
   <button type="submit" class="btn-success">Add</button>
 </form>
 
 
 <hr>
-<% if @entry != nil %>
-  <% if @entry.definitions().size() > 0 %>
+<% if @word != nil %>
+  <% if @word.definitions().size() > 0 %>
     <ul>
-      <% @entry.definitions().each() do |definition| %>
+      <% @word.definitions().each() do |definition| %>
 
         <li><%= definition.text %></li>
       <% end %>

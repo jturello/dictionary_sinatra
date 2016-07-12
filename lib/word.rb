@@ -16,9 +16,7 @@ class Word
 
     @text = args[:text]
     @definitions.push(Word::Definition.new({:text => args[:definition]}))
-
     @id = @@words.length() + 1
-
   end
 
   define_method(:definitions) do
@@ -36,6 +34,16 @@ class Word
 
   define_singleton_method(:clear) do
     @@words = []
+  end
+
+  define_singleton_method(:find) do |id|
+    @@words.each() do |word|
+      return word if word.id() == id 
+    end
+  end
+
+  define_method(:add_definition!) do |definition|
+    @definitions.push(Word::Definition.new({:text => definition}))
   end
 
 end

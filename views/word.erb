@@ -1,9 +1,24 @@
 <h1>Word Detail</h1>
-<!--
-<form action="/">
+
+<h2>Word: <%= @entry.text() %> </h2>
+
+<form action="/word" method="post">
   <div class="form-group">
-     <label for=""></label>
-     <input id="" name="" class="form-control" type="text">
+     <label for="definition"></label>
+     <input id="definition" name="definition" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn-success">Enter</button>
-</form> -->
+  <button type="submit" class="btn-success">Add</button>
+</form>
+
+
+<hr>
+<% if @entry != nil %>
+  <% if @entry.definitions().size() > 0 %>
+    <ul>
+      <% @entry.definitions().each() do |definition| %>
+
+        <li><%= definition %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>

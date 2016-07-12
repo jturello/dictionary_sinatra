@@ -10,21 +10,20 @@ class Word
       raise ArgumentError.new('Invalid input: nil or empty string not allowed!')
     end
 
-    if args[:definitions] == nil || args[:definitions].length() < 1 || args[:definitions] == ['']
-      raise ArgumentError.new('Invalid input: Word must contain at least one definition!')
+    if args[:definition] == "" || args[:definition] == nil
+      raise ArgumentError.new('Invalid input: nil or empty string not allowed!')
     end
 
     @text = args[:text]
-    definitions_str_arr = args[:definitions].slice(0, args[:definitions].length())
-    definitions_str_arr.each do |definition|
-      @definitions.push(Word::Definition.new({:text => definition}))
-    end
+    @definitions.push(Word::Definition.new({:text => args[:definition]}))
+
     @id = @@words.length() + 1
+
   end
 
   define_method(:definitions) do
     # return array by value, not by reference (Array class default)
-    @definitions.slice(0, @definitions.size())
+    @definitions #.slice(0, @definitions.size())
   end
 
   define_method(:save) do

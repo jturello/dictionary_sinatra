@@ -19,19 +19,24 @@ describe("root path '/'", {:type => :feature}) do
   #
   # end
 
-  it("contains an 'add a word' link") do
+  it("navigates to the Add a Word Form page when user clicks the 'add a word' link") do
     visit('/')
-    
+    click_link('Add a Word')
+    expect(page).to have_content('Add a Word Form')
+
   end
 
 end
 
-# describe("root path '/'", {:type => :feature}) do
-#   it('displays the homepage') do
-#     visit('/')
-#     fill_in('TEMPLATE', :with => 'SOMETHING')
-#     click_button('Enter')
-#     # save_and_open_page
-#     expect(page).to have_content('SOME RESULT')
-#   end
-# end
+describe("'/word_form' path", {:type => :feature}) do
+  it('XXXXXXXXXXX') do
+    visit('/')
+    click_link('Add a Word')
+    expect(page).to have_content('Add a Word Form')
+    fill_in('word', :with => 'conduct')
+    fill_in('definition', :with => 'drive a train')
+    # save_and_open_page
+    click_button('Add')
+    # expect(page).to have_content('drive a train')
+  end
+end

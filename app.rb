@@ -11,6 +11,16 @@ get('/') do
   erb(:index)
 end
 
-# get('/word') do
-#   erb(:word)
-# end
+post('/word_form') do
+  word = params[:word]
+  defi = params[:definition]
+  @entry = Word.new({:text => word, :definition => defi})
+  @entry.save()
+
+  erb(:word)
+
+end
+
+get('/word_form') do
+  erb(:word_form)
+end

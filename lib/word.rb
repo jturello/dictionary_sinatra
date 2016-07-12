@@ -4,6 +4,7 @@ class Word
   @@words = []
 
   define_method(:initialize) do |args|
+    @definitions = []
 
     if args[:text] == "" || args[:text] == nil
       raise ArgumentError.new('Invalid input: nil or empty string not allowed!')
@@ -14,7 +15,10 @@ class Word
     end
 
     @text = args[:text]
-    @definitions = args[:definitions].slice(0, args[:definitions].length())
+    definitions_str_arr = args[:definitions].slice(0, args[:definitions].length())
+    definitions_str_arr.each do |definition|
+      @definitions.push(Word::Definition.new({:text => definition}))
+    end
     @id = @@words.length() + 1
 
   end

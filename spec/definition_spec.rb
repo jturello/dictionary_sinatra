@@ -22,10 +22,5 @@ describe(Word::Definition) do
       expect{Word::Definition.new({})}.to raise_error(ArgumentError)
     end
 
-    it('contains a reference to the word it defines') do
-      word = Word.new({:text => 'something', :definitions => ['first definition']})
-      Word::Definition.new({:text => "something"})
-    end
-
   end
 end

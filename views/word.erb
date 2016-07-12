@@ -1,6 +1,6 @@
-<h1>Word Detail</h1>
+<h2>Word Detail Page</h2>
 
-<h2>Word: <%= @word.text() %> </h2>
+<h3>Word: <span class="green"><%= @word.text() %> </span></h3>
 
 <form action="/word" method="post">
   <div class="form-group">
@@ -22,7 +22,6 @@
   <h3>Definitions:</h3>
     <ul>
       <% @word.definitions().each() do |definition| %>
-
         <li><%= definition.text %></li>
       <% end %>
     </ul>

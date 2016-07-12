@@ -29,14 +29,12 @@ describe("root path '/'", {:type => :feature}) do
 end
 
 describe("'/word_form' path", {:type => :feature}) do
-  it('XXXXXXXXXXX') do
+  it('displays the entered definition on Word Detail page after it is added') do
     visit('/')
     click_link('Add a Word')
-    expect(page).to have_content('Add a Word Form')
     fill_in('word', :with => 'conduct')
     fill_in('definition', :with => 'drive a train')
-    # save_and_open_page
     click_button('Add')
-    # expect(page).to have_content('drive a train')
+    expect(page).to have_content('drive a train')
   end
 end

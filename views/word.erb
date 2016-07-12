@@ -4,7 +4,7 @@
 
 <form action="/word" method="post">
   <div class="form-group">
-     <label for="definition"></label>
+     <label for="definition">Add Definition:</label>
      <input id="definition" name="definition" class="form-control" type="text">
   </div>
   <div>
@@ -13,10 +13,13 @@
   <button type="submit" class="btn-success">Add</button>
 </form>
 
+<br>
+<a href="/">Return to Homepage</a>
 
 <hr>
 <% if @word != nil %>
   <% if @word.definitions().size() > 0 %>
+  <h3>Definitions:</h3>
     <ul>
       <% @word.definitions().each() do |definition| %>
 

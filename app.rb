@@ -7,10 +7,10 @@ require('pry')
 require('launchy')
 
 
-# get('/') do
-#   erb(:index)
-# end
-#
+get('/') do
+  erb(:index)
+end
+
 # get('/word') do
 #   erb(:word)
 # end

@@ -38,11 +38,11 @@ class Word
 
   define_singleton_method(:find) do |id|
     @@words.each() do |word|
-      return word if word.id() == id 
+      return word if word.id() == id
     end
   end
 
-  define_method(:add_definition!) do |definition|
+  define_method(:add_definition) do |definition|
     @definitions.push(Word::Definition.new({:text => definition}))
   end
 

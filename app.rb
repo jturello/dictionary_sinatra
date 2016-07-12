@@ -26,6 +26,6 @@ end
 post('/word') do
   word_id = params[:word_id].to_i
   @word = Word.find(word_id)
-  @word.add_definition!(params[:definition])
+  @word.add_definition(params[:definition])
   erb(:word)
 end

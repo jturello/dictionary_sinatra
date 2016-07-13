@@ -9,16 +9,18 @@ describe("root path '/'", {:type => :feature}) do
     expect(page).to have_content('Dictionary')
   end
 
-  it('does not display a word list before any words are saved') do
+  it('displays no word list before any are saved') do
     visit('/')
     expect(page).not_to have_content('Word List')
   end
 
-  it("navigates to the Add a Word Form page when user clicks the 'add a word' link") do
-    visit('/')
-    click_link('Add a Word')
-    expect(page).to have_content('Add a Word Form')
+  context("when 'add a word' link is clicked") do
 
+    it("displays the Add a Word Form page") do
+      visit('/')
+      click_link('Add a Word')
+      expect(page).to have_content('Add a Word Form')
+    end
   end
 end
 

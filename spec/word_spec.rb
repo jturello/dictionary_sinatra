@@ -14,44 +14,47 @@ end
       expect(word.class).to eq(Word)
     end
 
-    it('instantiates a word object with the text provided') do
+    it('instantiates a word object with text') do
       word = Word.new({:text => 'splat', :definition => 'that'})
       expect(word.text()).to eq('splat')
     end
 
-    it('give Word object a id') do
+    it('instantiates a Word object with an id') do
       word = Word.new({:text => 'something', :definition => 'the other'})
       expect(word.id()).not_to eq(nil)
     end
 
-    it('instantiate a Word with a definition') do
+    it('instantiates a Word with a definition') do
       word = Word.new({:text => 'something', :definition => 'first definition'})
       expect(word.definitions.size()).to be > 0
     end
 
-    it("raise ArgumentError when :text param is nil") do
-      expect{Word.new({:definition => 'stuff'})}.to raise_error(ArgumentError)
-    end
-
-    it("raise ArgumentError when :text param is ''") do
-      expect{Word.new({:definition => 'stuff'})}.to raise_error(ArgumentError)
-    end
-
-    it("raise ArgumentError when definition is nil = invalid input") do
-      expect{Word.new({:text => 'something', :definition => nil})}.to raise_error(ArgumentError)
-    end
-
-    it("raise ArgumentError when definition is '' = invalid input") do
-      expect{Word.new({:text => 'something', :definition => ''})}.to raise_error(ArgumentError)
-    end
-
-    it("raise ArgumentError when definition empty - nil = invalid input") do
-      expect{Word.new({:text => 'something'})}.to raise_error(ArgumentError)
-    end
-
-    it('instantiates and stores definition objects in a local variable array in the Word object') do
+    it('stores definitions in an array') do
       word = Word.new({:text => 'something', :definition => 'definition one'})
       expect(word.definitions[0].class).to eq(Word::Definition)
+    end
+
+    context('ArgumentError is raised for invalid constructor input') do
+
+      it("when :text param is nil") do
+        expect{Word.new({:definition => 'stuff'})}.to raise_error(ArgumentError)
+      end
+
+      it("when :text param is empty string") do
+        expect{Word.new({:definition => 'stuff'})}.to raise_error(ArgumentError)
+      end
+
+      it("when definition is nil") do
+        expect{Word.new({:text => 'something', :definition => nil})}.to raise_error(ArgumentError)
+      end
+
+      it("when definition is empty string") do
+        expect{Word.new({:text => 'something', :definition => ''})}.to raise_error(ArgumentError)
+      end
+
+      it("when definition not provided") do
+        expect{Word.new({:text => 'something'})}.to raise_error(ArgumentError)
+      end
     end
 
   end

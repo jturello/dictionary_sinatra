@@ -1,4 +1,4 @@
-Epicodus Ruby Week 2 Individual Coding Assignment for Code Review:
+Epicodus Ruby Week 2 Individual Coding Assignment for Code Review:  
 Object Oriented Programming in Ruby and Sinatra.
 
 By James Turello

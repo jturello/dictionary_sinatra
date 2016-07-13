@@ -4,19 +4,21 @@
 
 <form action="/word" method="post">
   <div class="form-group">
-     <label for="definition">Add Definition:</label>
-     <input id="definition" name="definition" class="form-control" type="text">
+     <label for="definition">Add Another Definition:</label>
+     <input id="definition" name="definition" class="form-control" type="text" required>
   </div>
   <div>
-    <input type="hidden" name="word_id" value="<%= @word.id() %>">
+    <input type="hidden" id="word_id" name="word_id" value="<%= @word.id %>">
   </div>
   <button type="submit" class="btn-success">Add</button>
 </form>
 
 <br>
+
 <a href="/">Return to Homepage</a>
 
 <hr>
+
 <% if @word != nil %>
   <% if @word.definitions().size() > 0 %>
   <h3>Definitions:</h3>

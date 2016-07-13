@@ -4,14 +4,12 @@
 
 <hr>
 
-<!-- <% if Word.all() != nil %> -->
   <% if Word.all().size() > 0 %>
   <h3>Word List:</h3>
     <ul>
       <% Word.all().each() do |word| %>
 
-        <li><a href="#"><%= word.text %></a></li>
+        <li><a href="/words/<%= word.id %>"><%= word.text %></a></li>
       <% end %>
     </ul>
   <% end %>
-<!-- <% end %> -->

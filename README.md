@@ -7,7 +7,7 @@ By James Turello
 
 This application contains two classes: One for Word, and one for Definition. The homepage of the app lists all words, and lets you click on them to view all of their definitions. A user can add a word, and when viewing a word, is able to add one or more definitions.
 
-This webpage is hosted at and can be viewed at the following url: [XXXXXXXXXX](http://)
+This webpage is hosted at and can be viewed at the following url: [dictionary-ruby](https://dictionary-ruby.herokuapp.com/)
 
 ## Setup/Installation Requirements
 
